@@ -51,144 +51,108 @@
       * plugin | magnificPopup
       * --------------------------------------------------*/
      function load_magnificPopup() {
-         jQuery('.simple-ajax-popup-align-top').magnificPopup({
-             type: 'ajax',
-             alignTop: true,
-             overflowY: 'scroll'
-         });
-         jQuery('.simple-ajax-popup').magnificPopup({
-             type: 'ajax'
-         });
-         // zoom gallery
-         jQuery('.zoom-gallery').magnificPopup({
-             delegate: 'a',
-             type: 'image',
-             closeOnContentClick: false,
-             closeBtnInside: false,
-             mainClass: 'mfp-with-zoom mfp-img-mobile',
-             image: {
-                 verticalFit: true,
-                 titleSrc: function(item) {
-                     return item.el.attr('title');
-                     //return item.el.attr('title') + ' &middot; <a class="image-source-link" href="'+item.el.attr('data-source')+'" target="_blank">image source</a>';
-                 }
-             },
-             gallery: {
-                 enabled: true
-             },
-             zoom: {
-                 enabled: true,
-                 duration: 300, // don't foget to change the duration also in CSS
-                 opener: function(element) {
-                     return element.find('img');
-                 }
-             }
-         });
-         // popup youtube, video, gmaps
-         jQuery('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
-             disableOn: 700,
-             type: 'iframe',
-             mainClass: 'mfp-fade',
-             removalDelay: 160,
-             preloader: false,
-             fixedContentPos: false
-         });
-         // Initialize popup as usual
-         $('.image-popup').magnificPopup({
-             type: 'image',
-             mainClass: 'mfp-with-zoom', // this class is for CSS animation below
 
-             zoom: {
-                 enabled: true, // By default it's false, so don't forget to enable it
+    if (typeof jQuery === "undefined") return;
+    if (typeof jQuery.fn.magnificPopup !== "function") return;
 
-                 duration: 300, // duration of the effect, in milliseconds
-                 easing: 'ease-in-out', // CSS transition easing function
+    var $ajaxTop = jQuery('.simple-ajax-popup-align-top');
+    if ($ajaxTop.length) {
+        $ajaxTop.magnificPopup({
+            type: 'ajax',
+            alignTop: true,
+            overflowY: 'scroll'
+        });
+    }
 
-                 // The "opener" function should return the element from which popup will be zoomed in
-                 // and to which popup will be scaled down
-                 // By defailt it looks for an image tag:
-                 opener: function(openerElement) {
-                     // openerElement is the element on which popup was initialized, in this case its <a> tag
-                     // you don't need to add "opener" option if this code matches your needs, it's defailt one.
-                     return openerElement.is('img') ? openerElement : openerElement.find('img');
-                 }
-             }
+    var $ajax = jQuery('.simple-ajax-popup');
+    if ($ajax.length) {
+        $ajax.magnificPopup({ type: 'ajax' });
+    }
 
-         });
-         $('.image-popup-vertical-fit').magnificPopup({
-             type: 'image',
-             closeOnContentClick: true,
-             mainClass: 'mfp-img-mobile',
-             image: {
-                 verticalFit: true
-             }
-         });
-         $('.image-popup-fit-width').magnificPopup({
-             type: 'image',
-             closeOnContentClick: true,
-             image: {
-                 verticalFit: false
-             }
-         });
-         $('.image-popup-no-margins').magnificPopup({
-             type: 'image',
-             closeOnContentClick: true,
-             closeBtnInside: false,
-             fixedContentPos: true,
-             mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
-             image: {
-                 verticalFit: true
-             },
-             zoom: {
-                 enabled: true,
-                 duration: 300 // don't foget to change the duration also in CSS
-             }
-         });
-         $('.image-popup-gallery').magnificPopup({
-             type: 'image',
-             closeOnContentClick: false,
-             closeBtnInside: false,
-             mainClass: 'mfp-with-zoom mfp-img-mobile',
-             image: {
-                 verticalFit: true,
-                 titleSrc: function(item) {
-                     return item.el.attr('title');
-                     //return item.el.attr('title') + ' &middot; <a class="image-source-link" href="'+item.el.attr('data-source')+'" target="_blank">image source</a>';
-                 }
-             },
-             gallery: {
-                 enabled: true
-             }
-         });
-         $('.images-group').each(function() { // the containers for all your galleries
-             $(this).magnificPopup({
-                 delegate: 'a', // the selector for gallery item
-                 type: 'image',
-                 gallery: {
-                     enabled: true
-                 }
-             });
-         });
+    var $zoomGallery = jQuery('.zoom-gallery');
+    if ($zoomGallery.length) {
+        $zoomGallery.magnificPopup({
+            delegate: 'a',
+            type: 'image',
+            closeOnContentClick: false,
+            closeBtnInside: false,
+            mainClass: 'mfp-with-zoom mfp-img-mobile',
+            image: {
+                verticalFit: true,
+                titleSrc: function(item) {
+                    return item.el.attr('title');
+                }
+            },
+            gallery: { enabled: true },
+            zoom: {
+                enabled: true,
+                duration: 300,
+                opener: function(el) {
+                    return el.find('img');
+                }
+            }
+        });
+    }
 
-         $('.images-popup').magnificPopup({
-             delegate: 'a', // child items selector, by clicking on it popup will open
-             type: 'image'
-             // other options
-         });
-     }
+    var $video = jQuery('.popup-youtube, .popup-vimeo, .popup-gmaps');
+    if ($video.length) {
+        $video.magnificPopup({
+            disableOn: 700,
+            type: 'iframe',
+            mainClass: 'mfp-fade',
+            removalDelay: 160,
+            preloader: false,
+            fixedContentPos: false
+        });
+    }
+
+    var $imgPopup = jQuery('.image-popup');
+    if ($imgPopup.length) {
+        $imgPopup.magnificPopup({
+            type: 'image',
+            mainClass: 'mfp-with-zoom',
+            zoom: {
+                enabled: true,
+                duration: 300,
+                easing: 'ease-in-out',
+                opener: function(el) {
+                    return el.is('img') ? el : el.find('img');
+                }
+            }
+        });
+    }
+
+    jQuery('.images-group').each(function() {
+        var $group = jQuery(this);
+        if ($group.find('a').length) {
+            $group.magnificPopup({
+                delegate: 'a',
+                type: 'image',
+                gallery: { enabled: true }
+            });
+        }
+    });
+}
+
      /* --------------------------------------------------
       * plugin | enquire.js
       * --------------------------------------------------*/
-     function init_resize() {
-         enquire.register("screen and (min-width: 993px)", {
-             match: function() {
-                 mobile_menu_show = 1;
-             },
-             unmatch: function() {
-                 mobile_menu_show = 0;
-                 jQuery("#menu-btn").show();
-             }
-         });
+    function init_resize() {
+    if (typeof enquire === "undefined") {
+        // enquire disabled (not React-friendly)
+        return;
+    }
+
+    enquire.register("screen and (min-width: 993px)", {
+        match: function () {
+            mobile_menu_show = 1;
+        },
+        unmatch: function () {
+            mobile_menu_show = 0;
+            jQuery("#menu-btn").show();
+        }
+    });
+
          enquire.register("screen and (max-width: 993px)", {
              match: function() {
                  $('header').addClass("header-mobile");
@@ -235,7 +199,16 @@
       * plugin | owl carousel
       * --------------------------------------------------*/
      function load_owl() {
-        jQuery("#items-carousel").owlCarousel({
+
+        if (typeof jQuery === "undefined") return;
+    if (typeof jQuery.fn.owlCarousel === "undefined") {
+        console.warn("Owl Carousel not loaded");
+        return;
+    }
+
+    var $items = jQuery("#items-carousel");
+if ($items.length && !$items.hasClass("owl-loaded")) {
+    $items.owlCarousel({
             center: false,
             items:4,
             rewind:true,
@@ -255,6 +228,8 @@
                 }
             }
          });
+}
+
 
         jQuery(".owl-2-cols-center").owlCarousel({
            center:true,
@@ -411,8 +386,16 @@
             dots:true,
          });
 
-         var owl = $('#item-carousel-big');
-         owl.owlCarousel();
+         var $owl2 = jQuery(".owl-2-cols-center");
+if ($owl2.length && !$owl2.hasClass("owl-loaded")) {
+    $owl2.owlCarousel({
+        center:true,
+        loop:true,
+        margin:30,
+        nav:false,
+        dots:false
+    });
+}
          $('.d-carousel .d-arrow-right').on("click", function() {
              owl.trigger('next.owl.carousel');
          })
@@ -421,7 +404,14 @@
          });
 
          var owl_2 = $('#item-carousel-big-type-2');
-         owl_2.owlCarousel();
+
+if (
+    owl_2.length &&
+    typeof jQuery.fn.owlCarousel === "function" &&
+    !owl_2.hasClass("owl-loaded")
+) {
+    owl_2.owlCarousel();
+}
          $('.d-carousel .d-arrow-right').on("click", function() {
              owl_2.trigger('next.owl.carousel');
          })
@@ -608,11 +598,19 @@
 
 
          // custom navigation for slider
-         var ows = $('#custom-owl-slider');
-         var arr = $('.owl-slider-nav');
-         var doc_height = $(window).innerHeight();
-         arr.css("top", (doc_height / 2) - 25);
-         ows.owlCarousel();
+        var ows = $('#custom-owl-slider');
+var arr = $('.owl-slider-nav');
+
+if (
+    ows.length &&
+    typeof jQuery.fn.owlCarousel === "function" &&
+    !ows.hasClass('owl-loaded')
+) {
+    var doc_height = $(window).innerHeight();
+    arr.css("top", (doc_height / 2) - 25);
+
+    ows.owlCarousel();
+}
          // Custom Navigation Events
          arr.find(".next").on("click", function() {
              ows.trigger('owl.next');
@@ -748,25 +746,35 @@
      /* --------------------------------------------------
       * counting number
       * --------------------------------------------------*/
-     function de_counter() {
-         jQuery('.timer').each(function() {
-             var imagePos = jQuery(this).offset().top;
-             var topOfWindow = jQuery(window).scrollTop();
-             if (imagePos < topOfWindow + jQuery(window).height() && v_count === '0') {
-                 jQuery(function($) {
-                     // start all the timers
-                     jQuery('.timer').each(count);
+    function de_counter() {
+    // If countTo plugin is not available, safely exit
+    if (typeof jQuery === "undefined" || typeof jQuery.fn.countTo !== "function") {
+        return;
+    }
 
-                     function count(options) {
-                         v_count = '1';
-                         var $this = jQuery(this);
-                         options = $.extend({}, options || {}, $this.data('countToOptions') || {});
-                         $this.countTo(options);
-                     }
-                 });
-             }
-         });
-     }
+    jQuery('.timer').each(function () {
+        var imagePos = jQuery(this).offset().top;
+        var topOfWindow = jQuery(window).scrollTop();
+
+        if (
+            imagePos < topOfWindow + jQuery(window).height() &&
+            v_count === '0'
+        ) {
+            v_count = '1';
+
+            jQuery('.timer').each(function () {
+                var $this = jQuery(this);
+                var options = jQuery.extend(
+                    {},
+                    $this.data('countToOptions') || {}
+                );
+
+                $this.countTo(options);
+            });
+        }
+    });
+}
+
      /* --------------------------------------------------
       * progress bar
       * --------------------------------------------------*/
@@ -1235,18 +1243,32 @@
         $('#de-loader').prepend($('<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>'));
          'use strict';
          f_rtl();         
-         $(".jarallax").jarallax();
-         load_magnificPopup();
-         grid_gallery();
-         init_resize();
-         de_progress();
-         de_countdown();
-         de_share();
-         de_tabs();
-         owlnavcenter();
-        $(function() {
-            $('.lazy').lazy();
+         $(window).on("load", function () {
+    'use strict';
+
+    f_rtl();
+
+    // Jarallax (SAFE)
+    if ($.fn.jarallax && $(".jarallax").length) {
+        $(".jarallax").jarallax({
+            speed: 0.5
         });
+    }
+
+    load_magnificPopup();
+    grid_gallery();
+    init_resize();
+    de_progress();
+    de_countdown();
+    de_share();
+    de_tabs();
+    owlnavcenter();
+
+    // Lazy load
+    if ($.fn.lazy) {
+        $('.lazy').lazy();
+    }
+});
 
         // button effect //
 
@@ -1372,12 +1394,13 @@
            return $state;
          };
 
-         skrollr.init();
+         if (typeof skrollr !== "undefined") {
+    var s = skrollr.init();
 
-         var s = skrollr.init();
-         if (s.isMobile()) {
-             s.destroy();
-         }
+    if (s && s.isMobile()) {
+        s.destroy();
+    }
+}
          
          // --------------------------------------------------
          // navigation for mobile
@@ -1454,7 +1477,9 @@
          custom_elements();
          init(); 
          
-         new WOW().init();
+         if (typeof WOW !== "undefined") {
+    new WOW().init();
+}
 
          
          // one page navigation
@@ -1609,31 +1634,48 @@
             var slidesPerPage = 5; //globaly define number of elements per page
             var syncedSecondary = true;
 
-            sync1.owlCarousel({
-                items: 1,
-                slideSpeed: 2000,
-                nav: true,
-                autoplay: false, 
-                dots: false,
-                nav: false,
-                loop: true,
-                responsiveRefreshRate: 200,
-                navText: ['<svg width="100%" height="100%" viewBox="0 0 11 20"><path style="fill:none;stroke-width: 1px;stroke: #000;" d="M9.554,1.001l-8.607,8.607l8.607,8.606"/></svg>', '<svg width="100%" height="100%" viewBox="0 0 11 20" version="1.1"><path style="fill:none;stroke-width: 1px;stroke: #000;" d="M1.054,18.214l8.606,-8.606l-8.606,-8.607"/></svg>'],
-            }).on('changed.owl.carousel', syncPosition);
+            var sync1 = $("#sync1");
+var sync2 = $("#sync2");
 
-            sync2
-                .on('initialized.owl.carousel', function() {
-                    sync2.find(".owl-item").eq(0).addClass("current");
-                })
-                .owlCarousel({
-                    items: slidesPerPage,
-                    dots: false,
-                    nav: false,
-                    smartSpeed: 200,
-                    slideSpeed: 500,
-                    slideBy: slidesPerPage, //alternatively you can slide by 1, this way the active slide will stick to the first item in the second carousel
-                    responsiveRefreshRate: 100
-                }).on('changed.owl.carousel', syncPosition2);
+if (
+    sync1.length &&
+    sync2.length &&
+    $.fn.owlCarousel &&
+    !sync1.hasClass("owl-loaded") &&
+    !sync2.hasClass("owl-loaded")
+) {
+
+    sync1
+        .owlCarousel({
+            items: 1,
+            slideSpeed: 2000,
+            nav: false,
+            autoplay: false,
+            dots: false,
+            loop: true,
+            responsiveRefreshRate: 200,
+            navText: [
+                '<svg width="100%" height="100%" viewBox="0 0 11 20"><path style="fill:none;stroke-width:1px;stroke:#000;" d="M9.554,1.001l-8.607,8.607l8.607,8.606"/></svg>',
+                '<svg width="100%" height="100%" viewBox="0 0 11 20"><path style="fill:none;stroke-width:1px;stroke:#000;" d="M1.054,18.214l8.606,-8.606l-8.606,-8.607"/></svg>'
+            ]
+        })
+        .on("changed.owl.carousel", syncPosition);
+
+    sync2
+        .on("initialized.owl.carousel", function () {
+            sync2.find(".owl-item").eq(0).addClass("current");
+        })
+        .owlCarousel({
+            items: slidesPerPage,
+            dots: false,
+            nav: false,
+            smartSpeed: 200,
+            slideSpeed: 500,
+            slideBy: slidesPerPage,
+            responsiveRefreshRate: 100
+        })
+        .on("changed.owl.carousel", syncPosition2);
+}
 
             function syncPosition(el) {
                 //if you set loop to false, you have to restore this next line

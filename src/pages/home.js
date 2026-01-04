@@ -1,43 +1,58 @@
 import React from "react";
-import { useModals } from "./useModals";
-import "./css/bootstrap.min.css";   // if using npm bootstrap
-import "./css/plugins.css";
-import "./css/swiper.css";
-import "./css/style.css";
-import "./css/colors/scheme-1.css";
-import "./css/custom-swiper-1.css";
-import logoWhite from "./images/logo-white.webp";
-import b1 from "./images/badge/1.webp";
-import b2 from "./images/badge/2.webp";
-import b3 from "./images/badge/3.webp";
-import b4 from "./images/badge/4.webp";
-import b5 from "./images/badge/5.webp";
-import b6 from "./images/badge/6.webp";
-import logoBigWhite from "./images/logo-big-white.webp";
-import bg6 from "./images/background/6.webp";
-import l1 from "./images/misc/l1.webp";
-import s1 from "./images/misc/s1.webp";
-import s2 from "./images/misc/s2.webp";
-import s3 from "./images/misc/s3.webp";
-import c1 from "./images/misc/c1.webp";
-import project1 from "./images/projects/1.webp";
-import project2 from "./images/projects/2.webp";
-import project3 from "./images/projects/3.webp";
-import testimonial1 from "./images/testimonial/1.webp";
-import testimonial2 from "./images/testimonial/2.webp";
-import testimonial3 from "./images/testimonial/3.webp";
-import testimonial4 from "./images/testimonial/4.webp";
-import testimonial5 from "./images/testimonial/5.webp";
-import testimonial6 from "./images/testimonial/6.webp";
-import testimonial7 from "./images/testimonial/7.webp";
-import testimonial8 from "./images/testimonial/8.webp";
-import testimonial9 from "./images/testimonial/9.webp";
-import testimonial10 from "./images/testimonial/10.webp";
-import news1 from "./images/news/s1.webp";
-import news2 from "./images/news/s2.webp";
-import news3 from "./images/news/s3.webp";
-import '@icon/icofont/icofont.css';
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useModals } from "../useModals";
+import ReloadLink from "../components/ReloadLink";
+
+// CSS
+import "../css/bootstrap.min.css";
+import "../css/plugins.css";
+import "../css/swiper.css";
+import "../css/style.css";
+import "../css/colors/scheme-1.css";
+import "../css/custom-swiper-1.css";
+
+// Icons
+import "@icon/icofont/icofont.css";
+import "icofont/dist/icofont.css";
+
+// Images
+import logoWhite from "../images/logo-white.webp";
+import logoBigWhite from "../images/logo-big-white.webp";
+
+import b1 from "../images/badge/1.webp";
+import b2 from "../images/badge/2.webp";
+import b3 from "../images/badge/3.webp";
+import b4 from "../images/badge/4.webp";
+import b5 from "../images/badge/5.webp";
+import b6 from "../images/badge/6.webp";
+
+import bg6 from "../images/background/6.webp";
+
+import l1 from "../images/misc/l1.webp";
+import s1 from "../images/misc/s1.webp";
+import s2 from "../images/misc/s2.webp";
+import s3 from "../images/misc/s3.webp";
+import c1 from "../images/misc/c1.webp";
+
+import project1 from "../images/projects/1.webp";
+import project2 from "../images/projects/2.webp";
+import project3 from "../images/projects/3.webp";
+
+import testimonial1 from "../images/testimonial/1.webp";
+import testimonial2 from "../images/testimonial/2.webp";
+import testimonial3 from "../images/testimonial/3.webp";
+import testimonial4 from "../images/testimonial/4.webp";
+import testimonial5 from "../images/testimonial/5.webp";
+import testimonial6 from "../images/testimonial/6.webp";
+import testimonial7 from "../images/testimonial/7.webp";
+import testimonial8 from "../images/testimonial/8.webp";
+import testimonial9 from "../images/testimonial/9.webp";
+import testimonial10 from "../images/testimonial/10.webp";
+
+import news1 from "../images/news/s1.webp";
+import news2 from "../images/news/s2.webp";
+import news3 from "../images/news/s3.webp";
+
 
 function Home() {
   useModals();
@@ -116,7 +131,7 @@ function Home() {
                     <div className="de-flex-col">
                       {/* logo begin */}
                       <div id="logo">
-                        <a href="index.html">
+                        <a href="/">
                           <img className="logo-main" src={logoWhite} alt="Logo" />
                           <img className="logo-mobile" src={logoWhite} alt="Logo" />
                         </a>
@@ -125,24 +140,48 @@ function Home() {
                     </div>
                     <div className="de-flex-col header-col-mid">
                       {/* mainemenu begin */}
-                      <ul id="mainmenu">
-                        <li><a className="menu-item" href="index.html">Home</a>
-                          <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="homepage-2.html">Homepage</a></li>
-                          </ul>
-                        </li>
-                        <li><a className="menu-item" href="about.html">About Us</a></li>
-                        <li><a className="menu-item" href="services.html">Services</a></li>
-                        <li><a className="menu-item" href="projects.html">Projects</a></li>
-                        <li><a className="menu-item" href="blog.html">Blog</a></li>
-                        <li><a className="menu-item" href="contact.html">Contact Us</a></li>
-                      </ul>
+                   <ul id="mainmenu">
+                                            <li>
+                                                <ReloadLink className="menu-item" to="/">
+                                                    Home
+                                                </ReloadLink>
+                                            </li>
+
+                                            <li>
+                                                <ReloadLink className="menu-item" to="/about">
+                                                    About Us
+                                                </ReloadLink>
+                                            </li>
+
+                                            <li>
+                                                <ReloadLink className="menu-item" to="/services">
+                                                    Services
+                                                </ReloadLink>
+                                            </li>
+
+                                            <li>
+                                                <ReloadLink className="menu-item" to="/projects">
+                                                    Projects
+                                                </ReloadLink>
+                                            </li>
+
+                                            <li>
+                                                <ReloadLink className="menu-item" to="/blog">
+                                                    Blog
+                                                </ReloadLink>
+                                            </li>
+
+                                            <li>
+                                                <ReloadLink className="menu-item" to="/contact">
+                                                    Contact Us
+                                                </ReloadLink>
+                                            </li>
+                                        </ul>
                       {/* mainmenu end */}
                     </div>
                     <div className="de-flex-col">
                       <div className="menu_side_area">
-                        <a href="appointment.html" className="btn-main fx-slide"><span>Book a Free Security Consultation</span></a>
+                        <a href="/appointment" className="btn-main fx-slide"><span>Book a Free Security Consultation</span></a>
                         {/* <a href="pricing.html" class="btn-main fx-slide"><span>Explore Services</span></a> */}
                         <span id="menu-btn" />
                       </div>
@@ -167,7 +206,7 @@ function Home() {
                   <h1 className="fs-120 fs-xs-10vw wow fadeInUp">Cyber Aries Pvt. Ltd.</h1>
                   <p className="lead mb-0 col-lg-6 offset-lg-3 wow fadeInUp" data-wow-delay=".2s"> Empowering organizations with expert audits, continuous monitoring, and deep penetration testing — ensuring resilience, compliance, and confidence in every layer of your digital ecosystem.</p>
                   <div className="spacer-single" />
-                  <a className="btn-main fx-slide wow fadeIn" data-wow-delay=".6s" href="appointment.html"><span>Book a Free Security Consultation</span></a>
+                  <a className="btn-main fx-slide wow fadeIn" data-wow-delay=".6s" href="/appointment"><span>Book a Free Security Consultation</span></a>
                 </div>
                 <div className="row g-4">
                   <div className="col-lg-2 col-sm-4 col-6 wow fadeInRight" data-wow-delay=".2s">
@@ -206,7 +245,7 @@ function Home() {
                 <h3 className="mb-0 fs-32 wow fadeInRight">Need a Comprehensive Cybersecurity Audit for Your Business?</h3>
               </div>
               <div className="col-md-2">
-                <a className="btn-main fx-slide btn-line wow fadeInLeft" href="appointment.html"><span>Get Your Audit Quote Now</span></a>
+                <a className="btn-main fx-slide btn-line wow fadeInLeft" href="/appointment"><span>Get Your Audit Quote Now</span></a>
               </div>
             </div>
           </div>
@@ -330,67 +369,67 @@ function Home() {
             </div>
             <div className="row g-4">
               <div className="col-lg-4 col-md-6 wow fadeInRight" data-wow-delay="0s">
-                <div href="service-single.html" className="d-block relative bg-dark-gradient text-light rounded-1 p-40 pb-20 overflow-hidden">
+                <div href="/service-single" className="d-block relative bg-dark-gradient text-light rounded-1 p-40 pb-20 overflow-hidden">
                   <div className="relative z-2 wow scaleIn" data-wow-delay=".0s">
                     <img src="images/icons-white/cyber-security.png" className="w-90px mb-3 bg-color p-3 rounded-1" alt />
                     <h4>Network Security</h4>
                     <p>Deploying firewalls and intrusion detection systems to safeguard networks.</p>
-                    <a className="btn-main fx-slide bg-dark" href="service-single.html"><span>Learn More</span></a>
+                    <a className="btn-main fx-slide bg-dark" href="/service-single"><span>Learn More</span></a>
                   </div>
                   <img src="images/icons-white/cyber-security.png" className="w-80 abs start-60 abs-middle op-1" alt />
                 </div>
               </div>
               <div className="col-lg-4 col-md-6 wow fadeInRight" data-wow-delay=".2s">
-                <div href="service-single.html" className="d-block relative bg-dark-gradient text-light rounded-1 p-40 pb-20 overflow-hidden">
+                <div href="/service-single" className="d-block relative bg-dark-gradient text-light rounded-1 p-40 pb-20 overflow-hidden">
                   <div className="relative z-2 wow scaleIn" data-wow-delay=".2s">
                     <img src="images/icons-white/encryption.png" className="w-90px mb-3 bg-color p-3 rounded-1" alt />
                     <h4>Data Encryption</h4>
                     <p>Encrypting sensitive data at rest and in transit using advanced encryption.</p>
-                    <a className="btn-main fx-slide bg-dark" href="service-single.html"><span>Learn More</span></a>
+                    <a className="btn-main fx-slide bg-dark" href="/service-single"><span>Learn More</span></a>
                   </div>
                   <img src="images/icons-white/encryption.png" className="w-80 abs start-60 abs-middle op-1" alt />
                 </div>
               </div>
               <div className="col-lg-4 col-md-6 wow fadeInRight" data-wow-delay=".4s">
-                <div href="service-single.html" className="d-block relative bg-dark-gradient text-light rounded-1 p-40 pb-20 overflow-hidden">
+                <div href="/service-single" className="d-block relative bg-dark-gradient text-light rounded-1 p-40 pb-20 overflow-hidden">
                   <div className="relative z-2 wow scaleIn" data-wow-delay=".4s">
                     <img src="images/icons-white/fingerprint.png" className="w-90px mb-3 bg-color p-3 rounded-1" alt />
                     <h4>Identity &amp; Access</h4>
                     <p>Managing user identities and access with MFA and detailed role-based control.</p>
-                    <a className="btn-main fx-slide bg-dark" href="service-single.html"><span>Learn More</span></a>
+                    <a className="btn-main fx-slide bg-dark" href="/service-single"><span>Learn More</span></a>
                   </div>
                   <img src="images/icons-white/fingerprint.png" className="w-80 abs start-60 abs-middle op-1" alt />
                 </div>
               </div>
               <div className="col-lg-4 col-md-6 wow fadeInRight" data-wow-delay=".6s">
-                <div href="service-single.html" className="d-block relative bg-dark-gradient text-light rounded-1 p-40 pb-20 overflow-hidden">
+                <div href="/service-single" className="d-block relative bg-dark-gradient text-light rounded-1 p-40 pb-20 overflow-hidden">
                   <div className="relative z-2 wow scaleIn" data-wow-delay=".6s">
                     <img src="images/icons-white/monitoring.png" className="w-90px mb-3 bg-color p-3 rounded-1" alt />
                     <h4>Security Monitoring</h4>
                     <p>24/7 monitoring with advanced SIEM systems for real-time detection.</p>
-                    <a className="btn-main fx-slide bg-dark" href="service-single.html"><span>Learn More</span></a>
+                    <a className="btn-main fx-slide bg-dark" href="/service-single"><span>Learn More</span></a>
                   </div>
                   <img src="images/icons-white/monitoring.png" className="w-80 abs start-60 abs-middle op-1" alt />
                 </div>
               </div>
               <div className="col-lg-4 col-md-6 wow fadeInRight" data-wow-delay=".8s">
-                <div href="service-single.html" className="d-block relative bg-dark-gradient text-light rounded-1 p-40 pb-20 overflow-hidden">
+                <div href="/service-single" className="d-block relative bg-dark-gradient text-light rounded-1 p-40 pb-20 overflow-hidden">
                   <div className="relative z-2 wow scaleIn" data-wow-delay=".8s">
                     <img src="images/icons-white/cloud-storage.png" className="w-90px mb-3 bg-color p-3 rounded-1" alt />
                     <h4>Backup &amp; Recovery</h4>
                     <p>Protecting critical data with secure backups and rapid recovery plans.</p>
-                    <a className="btn-main fx-slide bg-dark" href="service-single.html"><span>Learn More</span></a>
+                    <a className="btn-main fx-slide bg-dark" href="/service-single"><span>Learn More</span></a>
                   </div>
                   <img src="images/icons-white/cloud-storage.png" className="w-80 abs start-60 abs-middle op-1" alt />
                 </div>
               </div>
               <div className="col-lg-4 col-md-6 wow fadeInRight" data-wow-delay="1s">
-                <div href="service-single.html" className="d-block relative bg-dark-gradient text-light rounded-1 p-40 pb-20 overflow-hidden">
+                <div href="/service-single" className="d-block relative bg-dark-gradient text-light rounded-1 p-40 pb-20 overflow-hidden">
                   <div className="relative z-2 wow scaleIn" data-wow-delay="1s">
                     <img src="images/icons-white/settings.png" className="w-90px mb-3 bg-color p-3 rounded-1" alt />
                     <h4>Security Configuration</h4>
                     <p>Hardening systems and applying secure configurations across all infrastructure.</p>
-                    <a className="btn-main fx-slide bg-dark" href="service-single.html"><span>Learn More</span></a>
+                    <a className="btn-main fx-slide bg-dark" href="/service-single"><span>Learn More</span></a>
                   </div>
                   <img src="images/icons-white/settings.png" className="w-80 abs start-60 abs-middle op-1" alt />
                 </div>
@@ -412,7 +451,7 @@ function Home() {
             </div>
             <div className="row g-4">
               <div className="col-lg-6 wow fadeInRight" data-wow-delay=".0s">
-                <a href="project-single.html" className="hover overflow-hidden rounded-1 bg-dark text-light d-block">
+                <a href="/project-single" className="hover overflow-hidden rounded-1 bg-dark text-light d-block">
                   <div className="row g-0 align-items-center">
                     <div className="col-sm-6">
                       <div className="p-40">
@@ -434,7 +473,7 @@ function Home() {
                 </a>
               </div>
               <div className="col-lg-6 wow fadeInRight" data-wow-delay=".2s">
-                <a href="project-single.html" className="hover overflow-hidden rounded-1 bg-dark text-light d-block">
+                <a href="/project-single" className="hover overflow-hidden rounded-1 bg-dark text-light d-block">
                   <div className="row g-0 align-items-center">
                     <div className="col-sm-6">
                       <div className="p-40">
@@ -495,7 +534,7 @@ function Home() {
                 <div className="subtitle s2 mb-3 wow fadeInUp" data-wow-delay=".0s">Cyber Security Experts</div>
                 <h2 className="wow fadeInUp" data-wow-delay=".2s">Defending Businesses With Expertise And Innovation</h2>
                 <p className="col-lg-10 wow fadeInUp" data-wow-delay=".4s">We provide comprehensive cybersecurity solutions tailored for organizations of all sizes. From proactive threat monitoring to advanced incident response, our dedicated team keeps your digital assets safe and resilient.</p>
-                <a className="btn-main mb10 mb-3 wow fadeInUp" data-wow-delay=".6s" href="contact.html"><span>Request Consultation</span></a>
+                <a className="btn-main mb10 mb-3 wow fadeInUp" data-wow-delay=".6s" href="/contact"><span>Request Consultation</span></a>
                 <div className="border-bottom my-3" />
                 <div className="d-lg-flex align-items-center">
                   <div className="me-3">Google Rating</div>
@@ -550,7 +589,7 @@ function Home() {
                   />
                   <div className="abs w-100 px-4 hover-op-1 z-4 hover-mt-40 abs-centered">
                     <div className="mb-3">Safeguard your online store with end-to-end protection, preventing data breaches, fraud, and unauthorized access.</div>
-                    <a className="btn-line" href="project-single.html">View Details</a>
+                    <a className="btn-line" href="/project-single">View Details</a>
                   </div>
                   <div className="abs bg-color z-2 top-0 w-100 h-100 hover-op-1" />
                   <div className="abs z-2 bottom-0 mb-3 w-100 text-center hover-op-0">
@@ -570,7 +609,7 @@ function Home() {
                   />
                   <div className="abs w-100 px-4 hover-op-1 z-4 hover-mt-40 abs-centered">
                     <div className="mb-3">Eliminate hidden cloud vulnerabilities with expert misconfiguration audits, secure policies, and real-time fixes.</div>
-                    <a className="btn-line" href="project-single.html">View Details</a>
+                    <a className="btn-line" href="/project-single">View Details</a>
                   </div>
                   <div className="abs bg-color z-2 top-0 w-100 h-100 hover-op-1" />
                   <div className="abs z-2 bottom-0 mb-3 w-100 text-center hover-op-0">
@@ -590,7 +629,7 @@ function Home() {
                   />
                   <div className="abs w-100 px-4 hover-op-1 z-4 hover-mt-40 abs-centered">
                     <div className="mb-3">Strengthen your firm’s defenses with advanced protection, compliance support, and incident response readiness.</div>
-                    <a className="btn-line" href="project-single.html">View Details</a>
+                    <a className="btn-line" href="/project-single">View Details</a>
                   </div>
                   <div className="abs bg-color z-2 top-0 w-100 h-100 hover-op-1" />
                   <div className="abs z-2 bottom-0 mb-3 w-100 text-center hover-op-0">
@@ -941,7 +980,7 @@ function Home() {
             </div>
             <div className="row g-4">
               <div className="col-lg-4">
-                <a href="blog-single.html" className="d-block hover relative rounded-20 overflow-hidden text-light">
+                <a href="/blog-single" className="d-block hover relative rounded-20 overflow-hidden text-light">
                   <img
                     src={news1}
                     className="w-100 hover-scale-1-1"
@@ -964,7 +1003,7 @@ function Home() {
                 </a>
               </div>
               <div className="col-lg-4">
-                <a href="blog-single.html" className="d-block hover relative rounded-20 overflow-hidden text-light">
+                <a href="/blog-single" className="d-block hover relative rounded-20 overflow-hidden text-light">
                   <img
                     src={news2}
                     className="w-100 hover-scale-1-1"
@@ -987,7 +1026,7 @@ function Home() {
                 </a>
               </div>
               <div className="col-lg-4">
-                <a href="blog-single.html" className="d-block hover relative rounded-20 overflow-hidden text-light">
+                <a href="/blog-single" className="d-block hover relative rounded-20 overflow-hidden text-light">
                   <img
                     src={news3}
                     className="w-100 hover-scale-1-1"
@@ -1026,7 +1065,7 @@ function Home() {
                 <h3 className="mb-0 fs-32 wow fadeInRight">Need a Comprehensive Cybersecurity Audit for Your Business?</h3>
               </div>
               <div className="col-md-2">
-                <a className="btn-main fx-slide btn-line wow fadeInLeft" href="appointment.html"><span>Get Your Audit Quote
+                <a className="btn-main fx-slide btn-line wow fadeInLeft" href="/appointment"><span>Get Your Audit Quote
                   Now</span></a>
               </div>
             </div>
@@ -1037,14 +1076,14 @@ function Home() {
       <div id="termsModal" className="modal-overlay">
         <div className="modal-content">
           <span className="modal-close">×</span>
-          <iframe src="Terms&Conditions.html" />
+          <iframe src="/Terms&Conditions" />
         </div>
       </div>
       {/* Privacy Modal */}
       <div id="privacyModal" className="modal-overlay">
         <div className="modal-content">
           <span className="modal-close">×</span>
-          <iframe src="PrivacyPolicy.html" />
+          <iframe src="/PrivacyPolicy" />
         </div>
       </div>
       {/* content end */}
@@ -1075,13 +1114,13 @@ function Home() {
                   <div className="widget">
                     <h5>Company</h5>
                     <ul>
-                      <li><a href="index.html">Home</a></li>
-                      <li><a href="services.html">Our Services</a></li>
+                      <li><a href="/">Home</a></li>
+                      <li><a href="/services">Our Services</a></li>
                       {/* <li><a href="gallery.html">Gallery</a></li> */}
-                      <li><a href="about.html">About Us</a></li>
-                      <li><a href="blog.html">Blog</a></li>
-                      <li><a href="career.html">Career</a></li>
-                      <li><a href="contact.html">Contact</a></li>
+                      <li><a href="/about">About Us</a></li>
+                      <li><a href="/blog">Blog</a></li>
+                      <li><a href="/career">Career</a></li>
+                      <li><a href="/contact">Contact</a></li>
                     </ul>
                   </div>
                 </div>
@@ -1089,12 +1128,12 @@ function Home() {
                   <div className="widget">
                     <h5>Our Services</h5>
                     <ul>
-                      <li><a href="service-single.html">Network Security</a></li>
-                      <li><a href="service-single.html">Data Encryption</a></li>
-                      <li><a href="service-single.html">Identity &amp; Access</a></li>
-                      <li><a href="service-single.html">Security Monitoring</a></li>
-                      <li><a href="service-single.html">Backup &amp; Recovery</a></li>
-                      <li><a href="service-single.html">Security Configuration</a></li>
+                      <li><a href="/service-single">Network Security</a></li>
+                      <li><a href="/service-single">Data Encryption</a></li>
+                      <li><a href="/service-single">Identity &amp; Access</a></li>
+                      <li><a href="/service-single">Security Monitoring</a></li>
+                      <li><a href="/service-single">Backup &amp; Recovery</a></li>
+                      <li><a href="/service-single">Security Configuration</a></li>
                     </ul>
                   </div>
                 </div>
