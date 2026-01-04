@@ -58,13 +58,18 @@ public/
 ├── manifest.json
 └── robots.txt
 ```
-🚀 Getting Started
+🚀 Getting Started <br><br>
 1️⃣ Install dependencies
+```
 npm install
-
+```
+<br>
 2️⃣ Run development server
-npm start
+<br>
 
+```
+npm start
+```
 
 The app will run at:
 
